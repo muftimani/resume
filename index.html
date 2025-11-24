@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vaddepalli Manikanta | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Vaddepalli (Mani) Manikanta – LLM Content Writer, Technical Writer, and AI/Cybersecurity Content Specialist." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card-bg: #0f172a;
+      --border-subtle: #1e293b;
+      --radius-xl: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.6);
+      --max-width: 1040px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      padding: 0 16px 48px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 24px auto 0;
+    }
+
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      margin-bottom: 12px;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 4px 8px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb, #38bdf8 45%, #0f172a 85%);
+      box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.4),
+                  0 10px 25px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text span:last-child {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.4);
+      background-color: rgba(15, 23, 42, 0.8);
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding-inline: 4px;
+      }
+      .nav-links {
+        gap: 4px;
+      }
+      .nav-links a span {
+        display: none;
+      }
+      .nav-links a::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text {
+      padding: 18px 18px 20px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-kicker-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 36px);
+      line-height: 1.1;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 580px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background-color 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #06b6d4);
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 12px 35px rgba(8, 47, 73, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.7);
+      background-color: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background-color: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-right {
+      border-radius: 24px;
+      padding: 14px 14px 16px;
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .chip {
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-highlight {
+      margin-top: 8px;
+      padding: 10px 11px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-highlight strong {
+      color: var(--text-main);
+    }
+
+    /* Sections */
+    section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin: 0 0 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 640px;
+    }
+
+    /* About */
+    .about-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-subtle);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    /* Portfolio groups */
+    .portfolio-group {
+      margin-top: 10px;
+    }
+
+    .portfolio-group h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+
+    .portfolio-group p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 16px;
+      padding: 12px 12px 11px;
+      background: radial-gradient(circle at top, #020617 0, #020617 60%, #000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-subtle);
+      font-size: 13px;
+    }
+
+    .card-type {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .card-tag {
+      padding: 4px 7px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    .card-link {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 11px;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .card-link::after {
+      content: "↗";
+      margin-left: 2px;
+      font-size: 11px;
+    }
+
+    /* Contact */
+    .contact-card {
+      margin-top: 10px;
+      padding: 14px 16px 13px;
+      border-radius: var(--radius-xl);
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .contact-item {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <span>Vaddepalli Manikanta</span>
+          <span>LLM & Technical Content</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about"><span>About</span></a>
+        <a href="#portfolio"><span>Portfolio</span></a>
+        <a href="#research"><span>Research</span></a>
+        <a href="#contact"><span>Contact</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          <span>Selected Works · Portfolio</span>
+        </div>
+        <h1 class="hero-title">LLM Content Writer &amp; Technical Storyteller</h1>
+        <p class="hero-subtitle">
+          I write long-form, research-backed content on AI, cybersecurity, cloud computing,
+          and software engineering. My work combines hands-on experience with Spring Boot,
+          Docker, Kubernetes, AWS/Azure, and academic research in information technology management.
+        </p>
+        <div class="hero-meta">
+          <span>Based in St. Louis, Missouri</span>
+          <span>Focus: AI, Security, Cloud, Fintech</span>
+          <span>Formats: White papers, ebooks, articles</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#portfolio">View selected works</a>
+          <a class="btn btn-ghost" href="#contact">Work with me</a>
+        </div>
+      </div>
+      <aside class="hero-right" aria-label="Highlights">
+        <div class="stat-label">Snapshot</div>
+        <div class="stats-row">
+          <div class="chip">3+ years in backend &amp; cloud</div>
+          <div class="chip">Graduate researcher, IT Management</div>
+        </div>
+        <div class="stats-row">
+          <div class="chip">Cybersecurity &amp; AI-focused papers</div>
+          <div class="chip">Technical &amp; marketing content</div>
+        </div>
+        <div class="hero-highlight">
+          <strong>Recent work</strong>: developed cybersecurity and AI/ML research for space-based
+          communications, incident response frameworks for Fortune 500–style enterprises, and
+          vendor selection content for PoE network infrastructure.
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="section-header">
+        <div class="section-kicker">About</div>
+        <h2 class="section-title">Who I am</h2>
+        <p class="section-subtitle">
+          I help organizations turn complex technical topics into clear, actionable narratives –
+          from deep-dive white papers to executive-ready briefs.
+        </p>
+      </div>
+      <div class="about-grid">
+        <article class="about-card">
+          <p>
+            I'm Vaddepalli Manikanta (Mani), a technical and LLM-focused content writer with a
+            background in backend engineering and IT management. Before graduate school, I worked
+            as a Technical Associate at PwC, building and maintaining microservices for banking
+            clients using Spring Boot, Java, PostgreSQL, Kafka, Docker, Kubernetes, and AWS.
+          </p>
+          <p>
+            Today, I combine that engineering experience with research in cybersecurity,
+            cloud strategy, and AI/ML. I write white papers, ebooks, technical explainers,
+            and thought-leadership content that bridge hands-on detail and strategic clarity
+            for decision-makers, engineers, and investors.
+          </p>
+          <p>
+            I'm currently completing a Master of Arts in Information Technology Management at
+            Webster University in St. Louis (expected May 2025).
+          </p>
+        </article>
+        <aside class="about-card">
+          <strong style="font-size:13px; display:block; margin-bottom:6px;">Focus areas</strong>
+          <div class="about-taglist" style="margin-bottom:10px;">
+            <span class="tag">AI &amp; LLMs</span>
+            <span class="tag">Cybersecurity strategy</span>
+            <span class="tag">Cloud &amp; DevOps</span>
+            <span class="tag">Fintech</span>
+          </div>
+          <strong style="font-size:13px; display:block; margin-bottom:6px;">Typical deliverables</strong>
+          <div class="about-taglist">
+            <span class="tag">White papers &amp; reports</span>
+            <span class="tag">Technical ebooks &amp; guides</span>
+            <span class="tag">SEO articles</span>
+            <span class="tag">Product &amp; feature explainers</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-header">
+        <div class="section-kicker">Selected Works</div>
+        <h2 class="section-title">Content &amp; Copywriting</h2>
+        <p class="section-subtitle">
+          A curated selection of long-form content, white papers, and technical articles.
+          Links can point to PDFs, live posts, or private samples on request.
+        </p>
+      </div>
+
+      <div class="portfolio-group">
+        <h3>Ebooks &amp; Longform Guides</h3>
+        <p>Deep-dive assets designed for lead generation, education, or internal enablement.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-type">Ebook</div>
+            <div class="card-title">Securing Space-Based Communications with AI/ML</div>
+            <div class="card-meta">2025 · 40+ pages · Research-led ebook</div>
+            <p class="card-desc">
+              Explores how AI and machine learning can harden satellite and space-based
+              communication systems for defense organizations, covering threat models,
+              anomaly detection, and zero-trust architectures.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">AI/ML</span>
+              <span class="card-tag">Cybersecurity</span>
+              <span class="card-tag">Defense</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">Playbook</div>
+            <div class="card-title">Incident Response Framework for Enterprise Holdings</div>
+            <div class="card-meta">2024 · 30+ pages · Strategy &amp; process design</div>
+            <p class="card-desc">
+              Adapts NIST and SANS guidance into a practical incident response framework
+              for a Berkshire Hathaway–style conglomerate, including roles, runbooks,
+              communication flows, and tabletop exercise templates.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Incident response</span>
+              <span class="card-tag">Governance</span>
+              <span class="card-tag">CISO audience</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">Guide</div>
+            <div class="card-title">Beginner's Guide to Spring Boot Microservices</div>
+            <div class="card-meta">2023 · 50+ pages · Technical guide</div>
+            <p class="card-desc">
+              A hands-on guide to designing, building, and deploying Spring Boot–based
+              microservices with Docker, Kubernetes, and CI/CD pipelines on AWS.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Spring Boot</span>
+              <span class="card-tag">Kubernetes</span>
+              <span class="card-tag">AWS</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="portfolio-group">
+        <h3>White Papers</h3>
+        <p>Research-heavy assets written for technical buyers, executives, and stakeholders.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-type">White Paper</div>
+            <div class="card-title">Evaluating PoE Switches for Campus-Scale Networks</div>
+            <div class="card-meta">2024 · RFP-style vendor comparison</div>
+            <p class="card-desc">
+              Compares PoE switch vendors across performance, security, manageability,
+              and total cost of ownership for higher-education and enterprise networks.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Networking</span>
+              <span class="card-tag">RFP</span>
+              <span class="card-tag">Vendor analysis</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">White Paper</div>
+            <div class="card-title">Automating Cloud Migration with Containers &amp; IaC</div>
+            <div class="card-meta">2023 · Internal consulting asset</div>
+            <p class="card-desc">
+              Outlines how enterprises can standardize and automate migration of legacy
+              workloads to cloud-native stacks using Docker, Kubernetes, and Terraform-style
+              infrastructure as code.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Cloud</span>
+              <span class="card-tag">DevOps</span>
+              <span class="card-tag">PwC experience</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">White Paper</div>
+            <div class="card-title">Designing Resilient Fintech Microservices</div>
+            <div class="card-meta">2022 · Banking platform</div>
+            <p class="card-desc">
+              Describes architectural patterns for building resilient, low-latency fintech
+              services, including circuit breakers, idempotency, and Kafka-based event streaming.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Fintech</span>
+              <span class="card-tag">Microservices</span>
+              <span class="card-tag">Kafka</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="portfolio-group">
+        <h3>SEO Articles &amp; Explainers</h3>
+        <p>Search-optimized content that still respects technical accuracy and nuance.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-type">SEO Article</div>
+            <div class="card-title">How Proxygen Works (Explained in Simple Terms)</div>
+            <div class="card-meta">2024 · 2,000+ words · Educational</div>
+            <p class="card-desc">
+              Breaks down Meta's Proxygen HTTP framework for developers, covering architecture,
+              performance benefits, and use cases with clear diagrams and code snippets.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Developer tools</span>
+              <span class="card-tag">Performance</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">Longform Article</div>
+            <div class="card-title">IPO vs. Staying Private: What Tech Founders Should Know</div>
+            <div class="card-meta">2024 · 2,500+ words · Thought leadership</div>
+            <p class="card-desc">
+              Explains the mechanics and trade-offs of going public, including dilution,
+              governance, disclosure, and how buybacks, valuations, and market cycles interact.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Capital markets</span>
+              <span class="card-tag">Founders</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-type">SEO Article</div>
+            <div class="card-title">Money Management for International Students in the U.S.</div>
+            <div class="card-meta">2023 · Personal finance</div>
+            <p class="card-desc">
+              Practical guide for F-1 students covering budgeting, credit scores, banking,
+              remittances, and basic investing—written from lived experience.
+            </p>
+            <div class="card-tags">
+              <span class="card-tag">Personal finance</span>
+              <span class="card-tag">Students</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="section-header">
+        <div class="section-kicker">Academic &amp; Technical Work</div>
+        <h2 class="section-title">Research &amp; Projects</h2>
+        <p class="section-subtitle">
+          A sample of research papers and technical projects produced in my IT Management
+          program and industry roles.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-type">Research Paper</div>
+          <div class="card-title">Enhancing Cybersecurity Hardiness at Berkshire Hathaway</div>
+          <div class="card-meta">Webster University · 2024</div>
+          <p class="card-desc">
+            Proposes a multi-layered cybersecurity strategy for a diversified conglomerate,
+            including SOC modernization, incident handling, and risk management aligned
+            with NIST CSF and industry best practices.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Cybersecurity</span>
+            <span class="card-tag">Risk management</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-type">Research Proposal</div>
+          <div class="card-title">AI-Driven Threat Detection for Space Communication Networks</div>
+          <div class="card-meta">Webster University · 2025</div>
+          <p class="card-desc">
+            Explores the viability of anomaly detection using AI/ML on telemetry and
+            communication data from satellites, focusing on spoofing, jamming, and
+            data exfiltration scenarios.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">AI/ML</span>
+            <span class="card-tag">Satellite</span>
+            <span class="card-tag">Threat detection</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-type">Backend Project</div>
+          <div class="card-title">Banking Microservices Platform (PwC)</div>
+          <div class="card-meta">PwC · 2021–2023</div>
+          <p class="card-desc">
+            Contributed to backend services for a major U.S. bank, involving REST APIs,
+            Kafka-based messaging, PostgreSQL, and containerized deployments with Jenkins,
+            Docker, and Kubernetes.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Spring Boot</span>
+            <span class="card-tag">Kafka</span>
+            <span class="card-tag">Microservices</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-kicker">Contact</div>
+        <h2 class="section-title">Work with me</h2>
+        <p class="section-subtitle">
+          Need a writer who understands both the code and the business case?
+          I'm open to remote-friendly roles and project-based engagements.
+        </p>
+      </div>
+      <div class="contact-card">
+        <p>
+          The best way to reach me is by email or LinkedIn. I'm happy to share PDFs or
+          live links for any of the samples above, along with custom writing tests for
+          your specific domain.
+        </p>
+        <div class="contact-row">
+          <div class="contact-item">
+            Email: <a href="mailto:youremail@example.com">manikanta.vaddepalli9666@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            LinkedIn: <a href="#" target="_blank" rel="noopener">https://www.linkedin.com/in/vaddepalli-manikanta/</a>
+          </div>
+          <div class="contact-item">
+            Location: St. Louis, Missouri (open to remote)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Vaddepalli Manikanta · All rights reserved
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
